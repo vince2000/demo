@@ -36,14 +36,15 @@ func main() {
 	fmt.Println(a)*/
 	e := echo.New()
 	e.POST("/", func(c echo.Context) error {
+		/*	name1:=c.FormValue("name")
+		      fmt.Println(name1)*/
 		body, _ := ioutil.ReadAll(c.Request().Body)
 		//vm := map[string]interface{}{}
 		user := &User{}
 		json.Unmarshal(body, &user)
 		fmt.Println("name: ", user)
-		name:= c.QueryParam("name")
+		//name:= c.QueryParam("name")
 		//m:=make(map[string]string)
-		fmt.Println(name)
 		fmt.Println("hahah")
 		return c.JSON(http.StatusOK, user)
 		//return c.String(http.StatusOK,name)
